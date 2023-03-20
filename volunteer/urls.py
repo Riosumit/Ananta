@@ -5,5 +5,11 @@ from . import views
 from django.views.static import serve
 
 urlpatterns = [
-    path('', admin.site.urls),
+    path('', views.dashboard, name='dashboard'),
+    path('personal', views.personal, name='personal'),
+    path('medical', views.medical, name='medical'),
+    path('document', views.document, name='document'),
+    path('login', views.login, name='login'),
+    path('logout', views.logout, name='logout'),
+    path('add_todo', views.add_todo, name='add_todo'),
 ]

@@ -22,9 +22,9 @@ from django.views.static import serve
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name="home"),
-    path('host',include('host.urls')),
-    path('hospital',include('hospital.urls')),
-    path('volunteer',include('volunteer.urls')),
+    path('host/',include('host.urls')),
+    path('hospital/',include('hospital.urls')),
+    path('volunteer/',include('volunteer.urls')),
     re_path(r'^media/(?P<path>.*)$', serve,{'document_root': settings.MEDIA_ROOT}),
     re_path(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT})
 ]

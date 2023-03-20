@@ -5,5 +5,7 @@ from . import views
 from django.views.static import serve
 
 urlpatterns = [
-    path('', admin.site.urls),
+    path('', views.home, name="a_home"),
+    path('login', views.login, name="a_login"),
+    path('logout', views.logout, name="a_logout"),
 ]

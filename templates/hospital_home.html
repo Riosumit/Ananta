@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hospital</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body style="background-color: rgb(225, 225, 225)">
+    <nav class="navlinks">
+      <div class="logo">
+        <!-- <img src="{% static 'img/logo.png'%}" alt="logo" /> -->
+        <h2>Ananta</h2>
+      </div>
+      <div class="btns">
+        <a href="logout" style="text-decoration:none; padding-right: 40px;"><button type="button" class="btn btn-primary">Logout</button></a>
+      </div>
+    </nav>
+    <h3>Holla {{name}} !!!</h3>
+    <div class="adm">
+      <a class="admcard" href="upload_report">
+        <div class="stud">
+          <h3>Upload Report</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit,
+            ratione praesentium fugiat beatae saepe aut deleniti ipsam, totam
+            repellendus quos necessitatibus!
+          </p>
+        <button type="button" class="btn btn-primary">Primary</button>
+
+        </div>
+      </a>
+    </div>
+    </div>
+  </body>
+</html>

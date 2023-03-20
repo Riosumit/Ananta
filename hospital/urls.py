@@ -5,5 +5,8 @@ from . import views
 from django.views.static import serve
 
 urlpatterns = [
-    path('', admin.site.urls),
+    path('', views.home, name="h_home"),
+    path('login', views.login, name="h_login"),
+    path('logout', views.logout, name="h_logout"),
+    path('upload_report', views.upload_report, name="upload_report"),
 ]
