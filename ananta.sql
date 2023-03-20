@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Mar 20, 2023 at 09:36 AM
+-- Generation Time: Mar 20, 2023 at 02:16 PM
 -- Server version: 8.0.31
 -- PHP Version: 8.0.26
 
@@ -20,6 +20,29 @@ SET time_zone = "+00:00";
 --
 -- Database: `ananta`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `appointment`
+--
+
+DROP TABLE IF EXISTS `appointment`;
+CREATE TABLE IF NOT EXISTS `appointment` (
+  `aadhar` varchar(20) NOT NULL,
+  `id` varchar(20) NOT NULL,
+  `motive` varchar(255) NOT NULL,
+  `date` date NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `appointment`
+--
+
+INSERT INTO `appointment` (`aadhar`, `id`, `motive`, `date`) VALUES
+('123412341269', '21030480042', 'Blood Donation', '2023-03-30'),
+('123412341269', '21030480041', 'Blood Donation', '2023-03-24'),
+('123412341269', '21030480029', 'Blood Donation', '2023-03-30');
 
 -- --------------------------------------------------------
 
@@ -41,8 +64,10 @@ CREATE TABLE IF NOT EXISTS `hospital` (
 --
 
 INSERT INTO `hospital` (`id`, `name`, `about`, `pin`, `password`) VALUES
-('21030480042', 'Servey Hospital, Ranchi', '', '', 'servey@ranchi'),
-('21030480041', 'Arogyam Hospital, Dhanbad', '', '', 'aragyam@dhanbad');
+('21030480042', 'Survey Hospital, Ranchi', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', '834001', 'survey@ranchi'),
+('21030480029', 'MGM, Ranchi', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', '834002', 'mgm@ranchi'),
+('21030480041', 'Sadar Hospital, Ranchi', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', '834002', 'sadar@ranchi'),
+('21030480016', 'Rims, Ranchi', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', '834003', 'rims@ranchi');
 
 -- --------------------------------------------------------
 
@@ -126,7 +151,8 @@ CREATE TABLE IF NOT EXISTS `volunteer` (
 --
 
 INSERT INTO `volunteer` (`aadhar`, `name`, `dob`, `gender`, `email`, `phone_no`, `address`, `password`, `blood`, `allergies`, `height`, `weight`, `history`, `kin_name`, `kin_contact`, `donation`, `photo`, `aadhar_file`, `address_file`, `report`, `score`) VALUES
-('123412341234', 'Sumit Kumar', '2023-03-07', 'Male', 'nitesh4b@gmail.com', '9876543210', 'Hazaribag, Jharkhand', '123', 'B+', 'None', '1.72', '67', 'None', 'Sourav', '1234567890', 'Lungs, Pancreas, Intestines, Bone, Tissue, ', '123412341234_photo.gif', '123412341234_aadhar.gif', '123412341234_address.gif', '123412341234_report.gif', 0);
+('123412341234', 'Sumit Kumar', '2023-03-07', 'Male', 'nitesh4b@gmail.com', '9876543210', 'Hazaribag, Jharkhand', '123', 'B+', 'None', '1.72', '67', 'None', 'Sourav', '1234567890', 'Lungs, Pancreas, Intestines, Bone, Tissue, ', '123412341234_photo.gif', '123412341234_aadhar.gif', '123412341234_address.gif', '123412341234_report.gif', 0),
+('123412341269', 'Prem Kumar', '2002-05-14', 'male', 'prem@gmail.com', '9142874743', 'Gobar ghat Rajasthan', 'Mypass123', 'A+', 'sweating', '1.8', '75', 'short tempred', 'Sumit', '7273072371', 'Heart, Pancreas, Skin, Valves, ', '123412341269_photo.pdf', '123412341269_aadhar.pdf', '123412341269_address.pdf', '123412341269_report.pdf', 0);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
