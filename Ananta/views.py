@@ -6,3 +6,9 @@ import mysql.connector
 
 def home(request):
     return render(request,'home.html')
+
+def education(request):
+    return render(request, 'kidney.html')
+
+def awareness(request):
+    return render(request, 'awareness.html')

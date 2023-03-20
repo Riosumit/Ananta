@@ -79,6 +79,11 @@ nav{
 .navLeft{
     font-family: 'Poppins', sans-serif;
 }
+.navMainRight{
+	display: flex;
+	gap: 1rem;
+	align-items: center;
+}
 .navRight {
     background: #ddd;
     color: #222;

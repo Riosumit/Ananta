@@ -5,7 +5,8 @@ from . import views
 from django.views.static import serve
 
 urlpatterns = [
-    path('', views.dashboard, name='dashboard'),
+    path('', views.home, name='v_home'),
+    path('dashboard', views.dashboard, name='dashboard'),
     path('personal', views.personal, name='personal'),
     path('medical', views.medical, name='medical'),
     path('document', views.document, name='document'),

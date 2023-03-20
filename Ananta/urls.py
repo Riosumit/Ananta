@@ -22,6 +22,8 @@ from django.views.static import serve
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name="home"),
+    path('education', views.education, name="education"),
+    path('awareness', views.awareness, name="awareness"),
     path('host/',include('host.urls')),
     path('hospital/',include('hospital.urls')),
     path('volunteer/',include('volunteer.urls')),

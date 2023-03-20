@@ -154,7 +154,7 @@ def login(request):
     except:
         loggedin = False
     if loggedin:
-        return redirect('dashboard')
+        return redirect('v_home')
     else:
         msg=''
         id = request.POST.get('id','')
@@ -168,7 +168,7 @@ def login(request):
                 request.session['loggedin_volunteer'] = True
                 request.session['loggedin_volunteer_email'] = account[4]
                 request.session['loggedin_volunteer_aadhar'] = account[0]
-                return redirect('dashboard')
+                return redirect('v_home')
             else:
                 msg = "Invalid Email ID or Password"
         param = {'msg':msg}
@@ -223,3 +223,12 @@ def add_todo(request):
         cursor=mydb.cursor()
         cursor.execute('INSERT INTO todo VALUES (%s,%s)', (request.session['loggedin_volunteer_email'],title))
     return redirect('dashboard')
+
+def home(request):
+    try:
+        loggedin = request.session['loggedin_volunteer']
+    except:
+        loggedin = False
+    if not loggedin:
+        return redirect('login')
+    return render(request, 'hospitals.html')

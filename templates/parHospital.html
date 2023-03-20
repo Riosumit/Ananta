@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/parHospital.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    />
+    <title>hospitals</title>
+  </head>
+  <body>
+    <nav>
+      <div class="navLeft">ASTITVA</div>
+      <div class="navRight">
+        <a href="#">
+          <i class="fa-solid fa-user-nurse"></i>
+        </a>
+      </div>
+    </nav>
+    <div class="hhero">
+        <div class="heroBanner">
+          <div class="top">
+            <img src="{% static 'img/bramhananda.jpeg' %}" {% static 'alt="" />
+            <span>N Bramhananda</span>
+          </div>
+          <p>
+            “Brahmananda Narayana Multispeciality Hospital, Jamshedpur is
+            designed to meet the national and international healthcare standards
+            and is committed to providing quality medical care and excellent
+            patient service.”
+          </p>
+        </div>
+        <div class="aptBar">
+          <div>
+            <!-- <img src="img/bed.png" alt="" /> -->
+            <i class="fa-solid fa-bed-pulse"></i>
+            <input type="text" placeholder="Eg. Cardiac" />
+          </div>
+          <div>
+            <!-- <img src="img/schedule.png" alt="" /> -->
+            <i class="fa-solid fa-calendar-plus"></i>
+            <input type="text" placeholder="dd/mm/yyyy" />
+          </div>
+          <div class="locateBtn">Book Apointment</div>
+        </div>
+      </div>
+  </body>
+</html>
