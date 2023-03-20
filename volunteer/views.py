@@ -232,3 +232,63 @@ def home(request):
     if not loggedin:
         return redirect('login')
     return render(request, 'hospitals.html')
+
+def search(request):
+    try:
+        loggedin = request.session['loggedin_volunteer']
+    except:
+        loggedin = False
+    if not loggedin:
+        return redirect('login')
+    pin = request.POST.get('pin','')
+    if pin != '':
+        mydb = mysql.connector.connect(host="localhost",user="root",password="",charset='utf8',database="Ananta")
+        cursor=mydb.cursor()
+        cmd = "SELECT * FROM hospital WHERE pin like '"+pin[:4]+"%'"
+        cursor.execute(cmd)
+        hospital=cursor.fetchall()
+        print(hospital)
+        if hospital != []:
+            found=True
+        else:
+            found=False
+        hosp = []
+        for i in hospital:
+            hosp.append({'name':i[1], 'id':i[0]})
+        param={'hospital':hosp, 'found':found, 'pin':pin}
+        return render(request, 'filterHospital.html', param)
+    return render(request, 'hospitals.html')
+
+def get_hospital(request):
+    try:
+        loggedin = request.session['loggedin_volunteer']
+    except:
+        loggedin = False
+    if not loggedin:
+        return redirect('login')
+    id = request.POST.get("id","")
+    if id != "":
+        request.session["id"]=id
+        mydb = mysql.connector.connect(host="localhost",user="root",password="",charset='utf8',database="Ananta")
+        cursor=mydb.cursor()
+        cursor.execute("SELECT * FROM hospital WHERE id=%s",(id,))
+        hospital=cursor.fetchone()
+        param = {"name":hospital[1], "about":hospital[2]}
+        return render(request, 'parHospital.html', param)
+    return redirect('search')
+
+def book(request):
+    try:
+        loggedin = request.session['loggedin_volunteer']
+    except:
+        loggedin = False
+    if not loggedin:
+        return redirect('login')
+    motive = request.POST.get("for","")
+    date = request.POST.get("date","")
+    if motive != "":
+        mydb = mysql.connector.connect(host="localhost",user="root",password="",charset='utf8',database="Ananta")
+        cursor=mydb.cursor()
+        cursor.execute('INSERT INTO appointment VALUES (%s,%s,%s,%s)', (request.session['loggedin_volunteer_aadhar'],request.session["id"],motive,date))
+    return redirect(search)
+    

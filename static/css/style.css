@@ -210,3 +210,57 @@ nav{
 .footerCopy{
     text-align: center;
 }
+
+.reportForm{
+    background-color: #f2f2f2;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    width: 40%;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+.reportForm input{
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    border: none;
+    padding: 6px;
+    color: #ddd;
+}
+.formFeading{
+    font-family: "poppins", sans-serif;
+    color: #ED4848;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+
+.reportForm{
+    background-color: #f2f2f2;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    width: 40%;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+.reportForm button{
+    background-color: #ED4848;
+    color: #fff;
+    font-size: large;
+    font-family: "poppins", sans-serif;
+    width: min-content;
+    padding: 12px 60px;
+    border: none;
+    border-radius: 1343px;
+    transition: .4s ease-in-out;
+}
+.reportForm button:hover{
+    box-shadow: rgba(237, 72, 72, 0.22) 0px 10px 18px, rgba(0, 0, 0, 0.22) 0px 8px 12px;
+}

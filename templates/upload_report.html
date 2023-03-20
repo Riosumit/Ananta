@@ -6,11 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    />
     <title>Upload</title>
 </head>
 <body>
-    <form action="upload_report" method="post" enctype="multipart/form-data">
-        {% csrf_token %}
+     <nav>
+      <div class="navLeft">ANANTA</div>
+      <div class="navRight">
+        <a href="/volunteer/login">
+          <i class="fa-solid fa-right-to-bracket"></i>
+        </a>
+      </div>
+    </nav>
+    <div class="formbody">
+        <center><form class="reportForm" action="upload_report" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <center><h3 class="formFeading">Enter the Details</h3></center>
         <label for="aadhar">Aadhar Number <br>
             <input type="text" name="aadhar" required>
         </label><br><br>
@@ -24,7 +38,9 @@
             <input type="file" name="report" required>
         </label><br><br>
         <p>{{msg}}</p><br>
-        <button type="submit">Submit</button>
-    </form>
+        <center><button type="submit">Submit</button></center>
+        
+    </form></center></div>
+    
 </body>
 </html>

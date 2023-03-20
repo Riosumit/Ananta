@@ -20,20 +20,32 @@
         </a>
       </div>
     </nav>
-    <div class="noHospital">
-        <img src="{% static 'img/404.png' %}" alt="">
-        <h2>Oops! No Hospital Found!</h2>
-    </div>
-
+    {% if found %}
     <div class="filteredHospital">
       <div class="filteredWrap">
-        <h2>Filterd Hospital in Pincode : 831015</h2>
-        <div class="hospitalCard">N Brahmananda</div>
-        <div class="hospitalCard">N Brahmananda</div>
-        <div class="hospitalCard">N Brahmananda</div>
+        <h2>Filterd Hospital in Pincode : {{pin}}</h2>
+        {% for hos in hospital %}
+          <div class="hospitalCard" onclick="touch('{{hos.id}}')">{{hos.name}}</div>
+        {% endfor %}
       </div>
     </div>
-
+    {% else %}
+    <div class="noHospital">
+      <img src="{% static 'img/404.png' %}" alt="">
+      <h2>Oops! No Hospital Found!</h2>
+  </div>
+    {% endif %}
+    <form action="get_hospital" method="post" style="display: none">
+      {%csrf_token%}
+      <input type="text" name="id">
+      <button type="submit" name="submit"></button>
+    </form>
+    <script>
+      function touch(i){
+        document.getElementsByName('id')[0].value=i;
+        document.getElementsByName('submit')[0].click();
+      }
+    </script>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins:wght@600&display=swap");
       * {

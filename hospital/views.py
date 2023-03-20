@@ -9,10 +9,16 @@ def home(request):
         loggedin = request.session['loggedin_hospital']
     except:
         loggedin = False
-    if loggedin:
-        param = {'name' : request.session['loggedin_hospital_name']}
-        return render(request, 'hospital_home.html', param)
-    return redirect('h_login')
+    if not loggedin:
+        return redirect('h_login')
+    mydb = mysql.connector.connect(host="localhost",user="root",password="",charset='utf8',database="Ananta")
+    cursor=mydb.cursor()
+    cursor.execute('SELECT * FROM hospital WHERE id = %s', (request.session['loggedin_hospital_id'],))
+    account = cursor.fetchone()
+    cursor.execute('SELECT * FROM appointment WHERE id = %s', (request.session['loggedin_hospital_id'],))
+    appointment = cursor.fetchall()
+    param = {'name' : account[1], 'about': account[2], 'appointment':appointment}
+    return render(request, 'hospital_home.html', param)
 
 def login(request):
     try:
@@ -33,6 +39,7 @@ def login(request):
             if account:
                 request.session['loggedin_hospital'] = True
                 request.session['loggedin_hospital_name'] = account[1]
+                request.session['loggedin_hospital_id'] = account[0]
                 return redirect('h_home')
             else:
                 msg = "Invalid Hospital ID or Password"

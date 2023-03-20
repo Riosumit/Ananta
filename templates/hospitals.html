@@ -10,7 +10,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
     />
-    <title>hospitals</title>
+    <title>Volunteer</title>
   </head>
   <body>
     <nav>
@@ -32,12 +32,13 @@
       <!-- <div class="right">
           <img src="img/doctor.png" alt="" />
         </div> -->
-      <div class="locateBar">
+      <form action="search" method="post" class="locateBar">
+        {% csrf_token %}
         <!-- <img src="img/location.png" alt="" /> -->
         <i class="fa-solid fa-magnifying-glass-location"></i>
-        <input type="text" placeholder="Search Location..." />
-        <div class="locateBtn">Search</div>
-      </div>
+        <input type="text" placeholder="Search Location.......(pin code)" name="pin" required/>
+        <button class="locateBtn">Search</button>
+      </form>
       <div class="bottom">
         <div class="bCard">
           <i class="fa-solid fa-user-doctor"></i>

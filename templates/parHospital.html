@@ -25,28 +25,26 @@
         <div class="heroBanner">
           <div class="top">
             <img src="{% static 'img/bramhananda.jpeg' %}" {% static 'alt="" />
-            <span>N Bramhananda</span>
+            <span>{{name}}</span>
           </div>
           <p>
-            “Brahmananda Narayana Multispeciality Hospital, Jamshedpur is
-            designed to meet the national and international healthcare standards
-            and is committed to providing quality medical care and excellent
-            patient service.”
+            “{{about}}”
           </p>
         </div>
-        <div class="aptBar">
+        <form action="book" method="post" class="aptBar">
+          {% csrf_token %}
           <div>
             <!-- <img src="img/bed.png" alt="" /> -->
             <i class="fa-solid fa-bed-pulse"></i>
-            <input type="text" placeholder="Eg. Cardiac" />
+            <input type="text" placeholder="Eg. Cardiac" name="for"/>
           </div>
           <div>
             <!-- <img src="img/schedule.png" alt="" /> -->
             <i class="fa-solid fa-calendar-plus"></i>
-            <input type="text" placeholder="dd/mm/yyyy" />
+            <input type="date" placeholder="dd/mm/yyyy" name="date"/>
           </div>
-          <div class="locateBtn">Book Apointment</div>
-        </div>
+          <button class="locateBtn">Book Apointment</button>
+        </form>
       </div>
   </body>
 </html>
